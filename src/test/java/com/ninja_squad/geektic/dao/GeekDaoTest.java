@@ -1,43 +1,77 @@
 package com.ninja_squad.geektic.dao;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Before;
+
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ninja_squad.geektic.geek.CentreInteret;
 import com.ninja_squad.geektic.geek.Geek;
 import com.ninja_squad.geektic.geek.TypeSexe;
-import com.ninja_squad.geektic.service.GeekService;
-import com.ninja_squad.geektic.service.IGeekService;
-import static org.mockito.Mockito.*;
 
-public class GeekDaoTest {
-
+public class GeekDaoTest extends BaseDaoTest {
+	@Autowired
 	private IGeekDao dao;
-	private IGeekService service;
-	private Geek geek;
 
-	@Before
-	public void prepare() {
-		dao = mock(IGeekDao.class);
-		service = new GeekService(dao);
+	@Test
+	public void testFindAll() {
+		List<Geek> list = dao.findAll();
+		assertNotNull(list);
+		/*
+		List<String> listName = new ArrayList<String>();
+		listName.add("Landrieu");
+		listName.add("Mick");
+		listName.add("carole");*/
 
-		geek = new Geek("nom", "prenom", TypeSexe.homme);
+		try {
+			// do not work
+			for (Geek e : list) {
+				System.out.println("testFindAll:=" + e.getNom());
+
+				for (CentreInteret obj : e.getListeCentreInteret())
+					System.out.println(obj.getTitre());
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 
 	@Test
-	public void findGeekByNomPrenomTest() {
-		// Creation de la liste mock
-		List<Geek> fakeGeek = new ArrayList<>();
-		fakeGeek.add(new Geek("nom", "prenom", TypeSexe.homme));
-		when(dao.find("nom", "prenom")).thenReturn(fakeGeek);
-
+	public void testFindOneGeek() {
+		List<Geek> list = dao.find("Landrieu", "alexis");
 		
-		List<Geek> expected = new ArrayList<>();
-		expected.add(geek);
+		assertTrue(list.get(0).getNom().equals("Landrieu") &&
+				list.get(0).getPrenom().equals("alexis"));
+		
+	}
 
-		List<Geek> actual = null;
-		actual = service.find("nom", "prenom");
-		assertEquals(expected, actual);
+	@Test
+	public void testFindBySexe() {
+		List<Geek> list = dao.findBySexe(TypeSexe.homme);
+		for (Geek e : list) {
+			assertTrue(!e.getSexe().equals(TypeSexe.femme));
+		}
+		
+		list = dao.findBySexe(TypeSexe.femme);
+		for (Geek e : list) {
+			assertTrue(!e.getSexe().equals(TypeSexe.homme));
+		}
+	}
+	
+	@Test
+	public void testFindById() {
+		Geek obj = dao.findById(0l);
+		assertTrue(obj.getNom().equals("Landrieu"));
+		
+		obj = dao.findById(1l);
+		assertTrue(obj.getNom().equals("Mick"));
+		
+		obj = dao.findById(2l);
+		assertTrue(obj.getNom().equals("carole"));
 	}
 }

@@ -5,16 +5,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.ninja_squad.geektic.dao.IGeekDao;
 import com.ninja_squad.geektic.geek.Geek;
 
 @Service
-@Transactional
 public class GeekService implements IGeekService {
 	
 	public List<Geek> listeGeek;
+	
+	@Autowired
 	public IGeekDao geekDao;
 	
 	@Autowired
@@ -40,6 +39,6 @@ public class GeekService implements IGeekService {
 
 	@Override
 	public void addGeek(Geek geek){
-		geekDao.addGeek(geek);
+		//geekDao.addGeek(geek);
 	}
 }

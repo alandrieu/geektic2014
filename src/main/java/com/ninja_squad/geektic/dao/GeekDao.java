@@ -3,20 +3,21 @@ package com.ninja_squad.geektic.dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import org.springframework.stereotype.Repository;
 import com.ninja_squad.geektic.geek.Geek;
+import com.ninja_squad.geektic.geek.TypeSexe;
 
+@Repository
 public class GeekDao implements IGeekDao {
 	
+	@PersistenceContext
 	private EntityManager em;
-
-	public GeekDao(EntityManager em) {
-		this.em = em;
-	}
 
 	@Override
 	public List<Geek> findAll() {
-		String jpq1 = "select v from GEEK as v";
+		String jpq1 = "select v from Geek as v left outer join fetch v.listeCentreInteret";
 		TypedQuery<Geek> query = em.createQuery(jpq1, Geek.class);
 		List<Geek> liste = query.getResultList();
 
@@ -39,7 +40,7 @@ public class GeekDao implements IGeekDao {
 
 	@Override
 	public List<Geek> find(String nom, String prenom) {
-		String jpql = "select s from GEEK s where s.nom = :nom and s.prenom = :prenom";
+		String jpql = "select s from Geek s where s.nom = :nom and s.prenom = :prenom";
 		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
 		
 		query.setParameter("nom", nom);
@@ -48,9 +49,13 @@ public class GeekDao implements IGeekDao {
 		return query.getResultList();
 	}
 
-	@Override
-	public void addGeek(Geek geek) {
-		// TODO Auto-generated method stub
-
+	public List<Geek> findBySexe(TypeSexe sexe) {
+		String jpql = "select g from Geek g where g.sexe = :sexe";
+        TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
+        
+        query.setParameter("sexe", sexe);
+        
+        return query.getResultList();
 	}
+
 }

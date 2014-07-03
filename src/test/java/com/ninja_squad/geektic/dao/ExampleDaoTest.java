@@ -22,9 +22,4 @@ public class ExampleDaoTest extends BaseDaoTest {
         DbSetup dbSetup = new DbSetup(destination, operation);
         dbSetup.launch();
     }
-
-    @Test
-    public void testSomeDaoMethod() {
-        // implement your test here, by calling the exampleDao method to test.
-    }
 }
