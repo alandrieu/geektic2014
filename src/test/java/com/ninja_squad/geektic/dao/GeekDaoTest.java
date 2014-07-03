@@ -22,32 +22,32 @@ public class GeekDaoTest extends BaseDaoTest {
 	public void testFindAll() {
 		List<Geek> list = dao.findAll();
 		assertNotNull(list);
-		/*
-		List<String> listName = new ArrayList<String>();
-		listName.add("Landrieu");
-		listName.add("Mick");
-		listName.add("carole");*/
 
-		try {
-			// do not work
-			for (Geek e : list) {
-				System.out.println("testFindAll:=" + e.getNom());
+		// do not work
+		for (Geek e : list) {
+			System.out.println("\n" + "testFindAll:=" + e.getNom() + "\n");
 
-				for (CentreInteret obj : e.getListeCentreInteret())
-					System.out.println(obj.getTitre());
-			}
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+			for (CentreInteret obj : e.getListeCentreInteret())
+				System.out.println(obj.getTitre() + "-" + obj.getDescription());
 		}
 	}
 
 	@Test
 	public void testFindOneGeek() {
 		List<Geek> list = dao.find("Landrieu", "alexis");
-		
-		assertTrue(list.get(0).getNom().equals("Landrieu") &&
-				list.get(0).getPrenom().equals("alexis"));
-		
+
+		assertTrue(list.get(0).getNom().equals("Landrieu")
+				&& list.get(0).getPrenom().equals("alexis"));
+
+		list = dao.find("Mick", "jean");
+
+		assertTrue(list.get(0).getNom().equals("Mick")
+				&& list.get(0).getPrenom().equals("jean"));
+
+		list = dao.find("carole", "darty");
+
+		assertTrue(list.get(0).getNom().equals("carole")
+				&& list.get(0).getPrenom().equals("darty"));
 	}
 
 	@Test
@@ -56,21 +56,21 @@ public class GeekDaoTest extends BaseDaoTest {
 		for (Geek e : list) {
 			assertTrue(!e.getSexe().equals(TypeSexe.femme));
 		}
-		
+
 		list = dao.findBySexe(TypeSexe.femme);
 		for (Geek e : list) {
 			assertTrue(!e.getSexe().equals(TypeSexe.homme));
 		}
 	}
-	
+
 	@Test
 	public void testFindById() {
 		Geek obj = dao.findById(0l);
 		assertTrue(obj.getNom().equals("Landrieu"));
-		
+
 		obj = dao.findById(1l);
 		assertTrue(obj.getNom().equals("Mick"));
-		
+
 		obj = dao.findById(2l);
 		assertTrue(obj.getNom().equals("carole"));
 	}

@@ -17,7 +17,7 @@ public class GeekDao implements IGeekDao {
 
 	@Override
 	public List<Geek> findAll() {
-		String jpq1 = "select v from Geek as v left outer join fetch v.listeCentreInteret";
+		String jpq1 = "select distinct v from Geek as v left outer join fetch v.listeCentreInteret";
 		TypedQuery<Geek> query = em.createQuery(jpq1, Geek.class);
 		List<Geek> liste = query.getResultList();
 
