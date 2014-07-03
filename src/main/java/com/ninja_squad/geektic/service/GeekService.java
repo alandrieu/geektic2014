@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.ninja_squad.geektic.dao.IGeekDao;
 import com.ninja_squad.geektic.geek.Geek;
+import com.ninja_squad.geektic.geek.TypeSexe;
 
 @Service
 public class GeekService implements IGeekService {
@@ -38,7 +40,15 @@ public class GeekService implements IGeekService {
 	}
 
 	@Override
-	public void addGeek(Geek geek){
-		//geekDao.addGeek(geek);
+	public List<Geek> findBySexe(TypeSexe sexe) {
+		return geekDao.findBySexe(sexe);
 	}
+
+	@Override
+	public void addGeek(Geek geek) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

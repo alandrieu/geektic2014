@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ninja_squad.geektic.geek.Geek;
+import com.ninja_squad.geektic.geek.TypeSexe;
 import com.ninja_squad.geektic.service.IGeekService;
 
 @RestController
@@ -31,4 +32,14 @@ public class GeekController {
     		@PathVariable("prenom") String prenom) {  
         return geekService.find(nom, prenom);
     }  
+	
+	@RequestMapping("/find/{id}")
+    public Geek findOne(@PathVariable("id") Long id) {  
+        return geekService.findById(id);
+    }
+	/*
+	@RequestMapping("/find/{sexe}")
+    public List<Geek> findBySexAndCriteria(@PathVariable("sexe") TypeSexe sexe) {  
+    	return geekService.findBySexe(sexe);
+    }*/
 }

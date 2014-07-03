@@ -1,0 +1,44 @@
+<title>Geektic</title>
+<h1 class="text-center">Geektic Gotta Catch 'Em All !</h1>
+
+	<!-- Conteneur principal
+	
+	<td data-title="'watchers_count'">{{geek.watchers_count}}</td>
+	-->
+	<div ng-controller="MainCtrl" class="container">
+	
+	<!-- Barre de navigation -->
+		<div class="navbar navbar-inverse">
+			<div class="navbar-inner">
+
+				<input action="#" class="btn" type="submit" value="Home">
+				<!-- Liste les repositories de l'utilisateur  http://docs.angularjs.org/api/ng/filter/filter-->
+				Search Repo : <input id="input_repo" ng-model="searchText" placeholder="Search&hellip;"}>
+			</div>
+		</div>
+
+		<form action="#register">
+			<input class="btn" class="form-control" type="submit"
+				value="Search">
+		</form>
+	
+	
+	<!-- container  <td data-title="'avatar'"><img src={{geek.pathavatar}} alt="Avatar" border=3 height=50 width=50></img></td>-->
+	<table ng-table="tableParams" class="table">
+		<tr ng-repeat="geek in geeks">
+			<td data-title="'nom'">{{geek.pathavatar}}</td>
+			<td data-title="'nom'">{{geek.nom}}</td>
+			<td data-title="'prenom'">{{geek.prenom}}</td>
+			<td data-title="'age'">{{geek.age}}</td>
+		</tr>
+	</table>
+	
+	<div ng-repeat="geek in geeks">
+		<li class="list-group-item">
+				<a ng-href="#/geek/{{geek.id}}">{{ geek.nom }} {{ geek.prenom }}</a>
+		</li>
+	</div>
+
+	<h1 ng-repeat='geek in geeks'>{{ geek }}</h1>
+	
+	</div>

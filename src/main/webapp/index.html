@@ -2,11 +2,13 @@
 
 <html ng-app="geektic">
     <head>
+		<link href="/libs/Bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
         <title>Geektic</title>
     </head>
     <body ng-controller="HelloCtrl">
         <h1 ng-repeat='geek in geeks'>{{ geek }}</h1>
 
+		<script src="/libs/Bootstrap/js/bootstrap.min.js"></script>
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>
         <script src="/js/app.js"></script>
