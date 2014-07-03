@@ -25,7 +25,6 @@ FOREIGN KEY (ID_GEEK) REFERENCES GEEK(ID) ON DELETE CASCADE,
 FOREIGN KEY (ID_INTERET) REFERENCES CENTRES_INTERET(ID) ON DELETE CASCADE,
 );
 
-
 INSERT INTO "PUBLIC"."GEEK"
 ("NOM", "PRENOM", "AGE", "SEXE", "MAIL", "PATHAVATAR" )
 VALUES (  'Landrieu', 'alexis', '22', 'homme', 'alexis.landrieu@google.fr', '/ressources/profil/landrieu/picture/avatar.jpeg')
@@ -37,3 +36,35 @@ VALUES (  'Mick', 'jean', '25', 'femme', 'mick.jean@google.fr', '/ressources/pro
 INSERT INTO "PUBLIC"."GEEK"
 ("NOM", "PRENOM", "AGE", "SEXE", "MAIL", "PATHAVATAR" )
 VALUES (  'carole', 'darty', '14', 'femme', 'carole.darty@google.fr', '/ressources/profil/carole/picture/avatar.jpeg')
+
+INSERT INTO "PUBLIC"."CENTRES_INTERET"
+("TITRE", "DESCRIPTION")
+VALUES (  'Activité artistique', 'Je fais partie d’une chorale dans laquelle je suis soprano.')
+
+INSERT INTO "PUBLIC"."CENTRES_INTERET"
+("TITRE", "DESCRIPTION")
+VALUES (  'Activité culturelle', 'Je suis un(e) très grand(e) lecteur(trice).')
+
+INSERT INTO "PUBLIC"."CENTRES_INTERET"
+("TITRE", "DESCRIPTION")
+VALUES (  'Activité musicale', 'J’adore écouter de la musique')
+
+INSERT INTO "PUBLIC"."GEEK_CENTRES_INTERET"
+("ID_GEEK", "ID_INTERET")
+VALUES (  0, 2)
+
+INSERT INTO "PUBLIC"."GEEK_CENTRES_INTERET"
+("ID_GEEK", "ID_INTERET")
+VALUES (  1, 1)
+
+INSERT INTO "PUBLIC"."GEEK_CENTRES_INTERET"
+("ID_GEEK", "ID_INTERET")
+VALUES (  1, 0)
+
+INSERT INTO "PUBLIC"."GEEK_CENTRES_INTERET"
+("ID_GEEK", "ID_INTERET")
+VALUES (  1, 2)
+
+INSERT INTO "PUBLIC"."GEEK_CENTRES_INTERET"
+("ID_GEEK", "ID_INTERET")
+VALUES ( 2, 0)
