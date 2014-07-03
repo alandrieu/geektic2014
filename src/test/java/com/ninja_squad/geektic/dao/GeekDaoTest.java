@@ -1,7 +1,6 @@
 package com.ninja_squad.geektic.dao;
 
 import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
@@ -10,7 +9,6 @@ import com.ninja_squad.geektic.geek.Geek;
 import com.ninja_squad.geektic.geek.TypeSexe;
 import com.ninja_squad.geektic.service.GeekService;
 import com.ninja_squad.geektic.service.IGeekService;
-
 import static org.mockito.Mockito.*;
 
 public class GeekDaoTest {
@@ -28,8 +26,7 @@ public class GeekDaoTest {
 	}
 
 	@Test
-	public void trouverGeekParNomPrenomTest() {
-		
+	public void findGeekByNomPrenomTest() {
 		// Creation de la liste mock
 		List<Geek> fakeGeek = new ArrayList<>();
 		fakeGeek.add(new Geek("nom", "prenom", TypeSexe.homme));

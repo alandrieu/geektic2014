@@ -1,14 +1,13 @@
 package com.ninja_squad.geektic.dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-
 import com.ninja_squad.geektic.geek.Geek;
 
 public class GeekDao implements IGeekDao {
+	
 	private EntityManager em;
 
 	public GeekDao(EntityManager em) {
@@ -17,7 +16,7 @@ public class GeekDao implements IGeekDao {
 
 	@Override
 	public List<Geek> findAll() {
-		String jpq1 = "select v from Spectacle as v";
+		String jpq1 = "select v from GEEK as v";
 		TypedQuery<Geek> query = em.createQuery(jpq1, Geek.class);
 		List<Geek> liste = query.getResultList();
 

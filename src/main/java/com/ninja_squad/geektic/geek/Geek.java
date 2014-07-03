@@ -43,7 +43,7 @@ public class Geek {
 	private TypeSexe sexe;
 	
 	@Column
-	private java.io.File avatar;
+	private String avatar;
 	
 	@ManyToMany
     @JoinTable(name = "GEEK_INTERET",
@@ -83,10 +83,10 @@ public class Geek {
 		this.sexe = sexe;
 	}
 
-	public java.io.File getAvatar() {
+	public String getAvatar() {
 		return avatar;
 	}
-	public void setAvatar(java.io.File avatar) {
+	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
 
@@ -107,7 +107,7 @@ public class Geek {
 	}
 	
 	public Geek(String nom, String prenom, String email, TypeSexe sexe,
-			File avatar, List<CentreInteret> listeCentreInteret) {
+			String avatar, List<CentreInteret> listeCentreInteret) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
