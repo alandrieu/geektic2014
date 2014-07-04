@@ -20,6 +20,11 @@ import com.ninja_squad.geektic.service.IGeekService;
 public class GeekController {
 	@Autowired
 	private IGeekService geekService;
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/trouver/{id}")
+    public Geek findOne(@PathVariable("id") Long id) {  
+        return geekService.findById(id);
+    }
 
 	@RequestMapping(method = RequestMethod.GET, value = "/showAllGeeks")
 	public List<Geek> showAllGeeks() {
@@ -33,11 +38,6 @@ public class GeekController {
     		@PathVariable("prenom") String prenom) {  
         return geekService.find(nom, prenom);
     }  
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/find/{id}")
-    public Geek findOne(@PathVariable("id") Long id) {  
-        return geekService.findById(id);
-    }
 	
 	@RequestMapping(method = RequestMethod.GET, value ="/find/interet/{interet}")
     public List<Geek> findByInteret(@PathVariable("interet") CentreInteret interet) {  

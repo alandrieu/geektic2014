@@ -112,3 +112,238 @@
 22:29:46,623 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
 22:29:46,757 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
 22:29:46,879 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:32:11,371 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID
+10:32:11,502 ERROR main ast.ErrorCounter:78 -  Invalid path: 'v.listeCentreInteret'
+10:32:11,502 ERROR main ast.ErrorCounter:73 -  Invalid path: 'v.listeCentreInteret'
+ Invalid path: 'v.listeCentreInteret'
+	at org.hibernate.hql.internal.ast.util.LiteralProcessor.lookupConstant(LiteralProcessor.java:129)
+	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:225)
+	at org.hibernate.hql.internal.ast.tree.FromReferenceNode.resolve(FromReferenceNode.java:126)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromJoinElement(HqlSqlWalker.java:386)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.joinElement(HqlSqlBaseWalker.java:3858)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3644)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3522)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:706)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:562)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:299)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:247)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:278)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:206)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1800)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:342)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:342)
+	at com.sun.proxy.$Proxy35.createQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:262)
+	at com.sun.proxy.$Proxy33.createQuery(Unknown Source)
+	at com.ninja_squad.geektic.dao.GeekDao.find(GeekDao.java:44)
+	at com.ninja_squad.geektic.dao.GeekDaoTest.testFindOneGeek(GeekDaoTest.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:233)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:87)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:176)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+10:32:11,652 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:32:11,752 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:32:11,852 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:32:11,952 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:32:12,052 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:33:03,142 ERROR main ast.ErrorCounter:78 -  Invalid path: 'v.listeCentreInteret'
+10:33:03,142 ERROR main ast.ErrorCounter:73 -  Invalid path: 'v.listeCentreInteret'
+ Invalid path: 'v.listeCentreInteret'
+	at org.hibernate.hql.internal.ast.util.LiteralProcessor.lookupConstant(LiteralProcessor.java:129)
+	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:225)
+	at org.hibernate.hql.internal.ast.tree.FromReferenceNode.resolve(FromReferenceNode.java:126)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromJoinElement(HqlSqlWalker.java:386)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.joinElement(HqlSqlBaseWalker.java:3858)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3644)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3522)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:706)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:562)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:299)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:247)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:278)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:206)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1800)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:342)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:342)
+	at com.sun.proxy.$Proxy35.createQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:262)
+	at com.sun.proxy.$Proxy33.createQuery(Unknown Source)
+	at com.ninja_squad.geektic.dao.GeekDao.find(GeekDao.java:44)
+	at com.ninja_squad.geektic.dao.GeekDaoTest.testFindOneGeek(GeekDaoTest.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:233)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:87)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:176)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+10:33:57,033 ERROR main ast.ErrorCounter:78 -  Invalid path: 'v.listeCentreInteret'
+10:33:57,033 ERROR main ast.ErrorCounter:73 -  Invalid path: 'v.listeCentreInteret'
+ Invalid path: 'v.listeCentreInteret'
+	at org.hibernate.hql.internal.ast.util.LiteralProcessor.lookupConstant(LiteralProcessor.java:129)
+	at org.hibernate.hql.internal.ast.tree.DotNode.resolve(DotNode.java:225)
+	at org.hibernate.hql.internal.ast.tree.FromReferenceNode.resolve(FromReferenceNode.java:126)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromJoinElement(HqlSqlWalker.java:386)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.joinElement(HqlSqlBaseWalker.java:3858)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3644)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3522)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:706)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:562)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:299)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:247)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:278)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:206)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1800)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:342)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:342)
+	at com.sun.proxy.$Proxy35.createQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:262)
+	at com.sun.proxy.$Proxy33.createQuery(Unknown Source)
+	at com.ninja_squad.geektic.dao.GeekDao.find(GeekDao.java:44)
+	at com.ninja_squad.geektic.dao.GeekDaoTest.testFindOneGeek(GeekDaoTest.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:233)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:87)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:176)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+10:35:02,747 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:35:02,878 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:35:02,978 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:36:12,964 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:36:13,098 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:36:13,203 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:37:57,134 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID
+10:37:57,275 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:37:57,375 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:37:57,475 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:37:57,575 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:37:57,675 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:37:57,775 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:37:57,875 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:37:57,975 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:38:59,406 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID
+10:38:59,547 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:38:59,647 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:38:59,747 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:38:59,847 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:38:59,947 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:39:00,047 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_0_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_ from GEEK geek0_ where geek0_.ID=?
+10:42:17,775 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID
+10:42:17,916 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:42:18,016 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:42:18,116 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.nom=? and geek0_.prenom=?
+10:42:18,216 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:42:18,316 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_1_, geek0_.age as age2_1_, geek0_.MAIL as MAIL3_1_, geek0_.nom as nom4_1_, geek0_.pathavatar as pathavat5_1_, geek0_.prenom as prenom6_1_, geek0_.sexe as sexe7_1_ from GEEK geek0_ where geek0_.sexe=?
+10:42:18,416 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.ID=?
+10:42:18,516 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.ID=?
+10:42:18,616 DEBUG main hibernate.SQL:109 - select distinct geek0_.ID as ID1_1_0_, centreinte2_.ID as ID1_0_1_, geek0_.age as age2_1_0_, geek0_.MAIL as MAIL3_1_0_, geek0_.nom as nom4_1_0_, geek0_.pathavatar as pathavat5_1_0_, geek0_.prenom as prenom6_1_0_, geek0_.sexe as sexe7_1_0_, centreinte2_.description as descript2_0_1_, centreinte2_.titre as titre3_0_1_, listecentr1_.ID_GEEK as ID_GEEK1_1_0__, listecentr1_.ID_INTERET as ID_INTER2_2_0__ from GEEK geek0_ left outer join GEEK_CENTRES_INTERET listecentr1_ on geek0_.ID=listecentr1_.ID_GEEK left outer join CENTRES_INTERET centreinte2_ on listecentr1_.ID_INTERET=centreinte2_.ID where geek0_.ID=?

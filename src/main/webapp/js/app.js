@@ -15,7 +15,7 @@ app.controller('MainCtrl', function($scope, $http) {
 // Show By Id profil
 app.controller('ProfilCtrl', function($scope, $http, $location, $routeParams)
 {
-	$http.get('/geek/find/' + $routeParams.id).success(function(data) {
+	$http.get('/geek/trouver/' + $routeParams.id).success(function(data) {
 		$scope.geek = data;
     });
 });

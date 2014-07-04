@@ -14,7 +14,7 @@ public class CentreIntertDao implements ICentreInteretDao {
 
 	@Override
 	public List<CentreInteret> findAll() {
-		String jpq1 = "select v from CentreInteret as v";
+		String jpq1 = "select distinct v from CentreInteret as v left outer join fetch v.listeGeeks";
 		TypedQuery<CentreInteret> query = em.createQuery(jpq1, CentreInteret.class);
 		List<CentreInteret> liste = query.getResultList();
 

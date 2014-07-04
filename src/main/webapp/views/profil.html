@@ -2,13 +2,48 @@
 
 <input action="#" class="btn" type="submit" value="Home">
 <hr>
-{{ geek.nom }} {{ geek.prenom }}<br />
-{{ geek.age }} ans <br />
-{{ geek.email }} <br />
-<div ng-repeat="interet in geek.listeCentreInteret">
-	{{ interet.titre }}
-</div>
 
-<h1 class="text-center">Data controller</h1>
+<li class="list-group-item">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Age</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ geek.nom }}</td>
+				<td>{{ geek.prenom }}</td>
+				<td>{{ geek.age }}</td>
+				<td>{{ geek.email }}</td>
+			</tr>
+		</tbody>
+	</table>
+</li>
+
+
+<li class="list-group-item">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Titre</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="interet in geek.listeCentreInteret">
+				<td>{{ interet.titre }}</td>
+				<td>{{ interet.description }}</td>
+			</tr>
+
+		</tbody>
+	</table>
+</li>
+
+
+<h2 class="text-center">Data controller</h2>
 <hr>
 {{ geek }}

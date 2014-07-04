@@ -26,7 +26,13 @@ public class GeekDao implements IGeekDao {
 
 	@Override
 	public Geek findById(Long id) {
-		return em.find(Geek.class, id);
+		//return em.find(Geek.class, id);
+		
+		String jpql = "select distinct s from Geek as s left outer join fetch s.listeCentreInteret where s.id = :identifier";
+		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
+		
+		query.setParameter("identifier", id);
+		return query.getResultList().get(0); // .getResultList();
 	}
 
 	@Override
@@ -40,7 +46,7 @@ public class GeekDao implements IGeekDao {
 
 	@Override
 	public List<Geek> find(String nom, String prenom) {
-		String jpql = "select s from Geek s where s.nom = :nom and s.prenom = :prenom";
+		String jpql = "select distinct s from Geek as s left outer join fetch s.listeCentreInteret where s.nom = :nom and s.prenom = :prenom";
 		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
 		
 		query.setParameter("nom", nom);

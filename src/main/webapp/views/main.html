@@ -4,25 +4,26 @@
 <form action="#profile">
 	<!-- Liste des utilisateur-->
 	<input id="inputSearch" ng-model="searchText" placeholder="Search&hellip;"}>
-	<input class="btn" class="form-control" type="submit" value="Search">
 	
-	<select ng-model="Interet" ng-options="interet.titre for interet in interets"></select>	
+	<!-- Choix d'interets-->
+	<select class="lesInteret" ng-model="lesInterets" ng-options="interet.titre for interet in interets"></select>	
 	
 	<!-- Choix Homme Femme-->
-	<input type=text list=browsers >
-	<datalist id=browsers >
-   		<option> Homme
-   		<option> Femme
-	</datalist>
+	<select class="leSexe" ng-model="leSexe">
+  		<option value="homme"> Homme
+   		<option value ="femme"> Femme
+	</select>
+	
+	<input class="btn" ng-model="search" class="form-control" type="submit" value="Search">
 </form>
 
 <div ng-repeat="geek in geeks">
 	<li class="list-group-item">
 	<img src="{{geek.avatar}}" alt="Avatar" border=3 height=50 width=50></img> 
-	
 	<a ng-href="#/profil/{{geek.id}}">
-			{{ geek.nom }} {{ geek.prenom }}, {{ geek.age }} ans {{ geek.email }}
-	</a></li>
+		{{ geek.nom }} , {{ geek.prenom }}, {{ geek.age }} ans, {{ geek.email }}
+	</a>
+	</li>
 </div>
 
 <h1 class="text-center">Data controller</h1>

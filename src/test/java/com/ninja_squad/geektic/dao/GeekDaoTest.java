@@ -38,7 +38,7 @@ public class GeekDaoTest extends BaseDaoTest {
 
 		assertTrue(list.get(0).getNom().equals("Landrieu")
 				&& list.get(0).getPrenom().equals("alexis"));
-
+		
 		list = dao.find("Mick", "jean");
 
 		assertTrue(list.get(0).getNom().equals("Mick")
@@ -67,6 +67,8 @@ public class GeekDaoTest extends BaseDaoTest {
 	public void testFindById() {
 		Geek obj = dao.findById(0l);
 		assertTrue(obj.getNom().equals("Landrieu"));
+		
+		System.out.println("LANDRIEU CENTRE INTERET : " +  obj.getListeCentreInteret().get(0).getTitre());
 
 		obj = dao.findById(1l);
 		assertTrue(obj.getNom().equals("Mick"));
