@@ -53,10 +53,13 @@ public class GeekService implements IGeekService {
 
 	@Override
 	public List<Geek> findByInteret(Long interetId) {
+		// récupération des utilisateurs
 		List<Geek> listAll = geekDao.findAll();
 		
+		// la purge
 		List<Integer> deleteItem = new ArrayList<>();
 
+		// parcours de toute la liste
 		for (int i = 0; i < listAll.size(); i++) {
 			Boolean value = false;
 			for (CentreInteret inter : listAll.get(i).getListeCentreInteret()) {
