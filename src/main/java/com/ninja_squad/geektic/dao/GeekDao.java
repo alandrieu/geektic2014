@@ -56,7 +56,7 @@ public class GeekDao implements IGeekDao {
 	}
 
 	public List<Geek> findBySexe(TypeSexe sexe) {
-		String jpql = "select g from Geek g where g.sexe = :sexe";
+		String jpql = "select distinct g from Geek as g left outer join fetch g.listeCentreInteret  where g.sexe = :sexe";
         TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
         
         query.setParameter("sexe", sexe);

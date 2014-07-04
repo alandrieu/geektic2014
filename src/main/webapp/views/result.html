@@ -1,4 +1,4 @@
-<h1 class="text-center">{{ geek.nom }} {{ geek.prenom }}</h1>
+<h1 class="text-center">Result Search</h1>
 
 <form action="#">
 	<div class="form-group">
@@ -18,35 +18,31 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr ng-repeat="geek in geeks">
 				<td>{{ geek.nom }}</td>
 				<td>{{ geek.prenom }}</td>
 				<td>{{ geek.age }}</td>
 				<td>{{ geek.email }}</td>
+				<td>{{ geek.sexe }}</td>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="interet in geek.listeCentreInteret">
+							<td>{{ interet.titre }}</td>
+							<td>{{ interet.description }}</td>
+						</tr>
+					</tbody>
+				</table>
 			</tr>
 		</tbody>
 	</table>
 </li>
-
-
-<li class="list-group-item">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Titre</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="interet in geek.listeCentreInteret">
-				<td>{{ interet.titre }}</td>
-				<td>{{ interet.description }}</td>
-			</tr>
-
-		</tbody>
-	</table>
-</li>
-
 
 <h2 class="text-center">Data controller</h2>
 <hr>

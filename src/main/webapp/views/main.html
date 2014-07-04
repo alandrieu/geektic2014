@@ -1,29 +1,27 @@
 <title>Geektic</title>
 <h1 class="text-center">Geektic Gotta Catch 'Em All !</h1>
 
-<form action="#profile">
-	<!-- Liste des utilisateur-->
-	<input id="inputSearch" ng-model="searchText" placeholder="Search&hellip;"}>
-	
+<form action="#">
 	<!-- Choix d'interets-->
-	<select class="lesInteret" ng-model="lesInterets" ng-options="interet.titre for interet in interets"></select>	
-	
+	<select class="lesInterets" ng-model="lesInterets"
+		ng-options="interet.titre for interet in interets"></select>
+
 	<!-- Choix Homme Femme-->
 	<select class="leSexe" ng-model="leSexe">
-  		<option value="homme"> Homme
-   		<option value ="femme"> Femme
-	</select>
-	
-	<input class="btn" ng-model="search" class="form-control" type="submit" value="Search">
+		<option value="homme">Homme
+		<option value="femme">Femme
+	</select> 
+	<a ng-href="#/profil/{{lesInterets}}/{{leSexe}}"> 
+	<input class="btn" ng-model="search" class="form-control"
+		type="submit" value="Search">
+	</a>
 </form>
 
 <div ng-repeat="geek in geeks">
-	<li class="list-group-item">
-	<img src="{{geek.avatar}}" alt="Avatar" border=3 height=50 width=50></img> 
-	<a ng-href="#/profil/{{geek.id}}">
-		{{ geek.nom }} , {{ geek.prenom }}, {{ geek.age }} ans, {{ geek.email }}
-	</a>
-	</li>
+	<li class="list-group-item"><img src="{{geek.avatar}}"
+		alt="Avatar" border=3 height=50 width=50></img> <a
+		ng-href="#/profil/{{geek.id}}"> {{ geek.nom }} , {{ geek.prenom
+			}}, {{ geek.age }} ans, {{ geek.email }} </a></li>
 </div>
 
 <h1 class="text-center">Data controller</h1>

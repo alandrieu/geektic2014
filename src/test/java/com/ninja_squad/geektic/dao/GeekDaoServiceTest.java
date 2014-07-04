@@ -1,6 +1,7 @@
 package com.ninja_squad.geektic.dao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.ninja_squad.geektic.geek.CentreInteret;
 import com.ninja_squad.geektic.geek.Geek;
 import com.ninja_squad.geektic.geek.TypeSexe;
 import com.ninja_squad.geektic.service.GeekService;
@@ -41,5 +43,15 @@ public class GeekDaoServiceTest {
 		List<Geek> actual = null;
 		actual = service.find("nom", "prenom");
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void findGeekByInteretCriteria() {	
+		CentreInteret interet = new CentreInteret("Activité artistique",
+				"Je fais partie d’une chorale dans laquelle je suis soprano.");
+
+		List<Geek> actual = null;
+		actual = service.findByInteret(interet);
+		assertTrue(!actual.isEmpty());
 	}
 }
