@@ -17,8 +17,8 @@ public interface IGeekService {
 	
 	abstract void addGeek(Geek geek);
 	
-	abstract List<Geek> findByInteret(CentreInteret interet);
-	abstract List<Geek> findByInteret(CentreInteret interet, List<Geek> preBuffuredList);
+	abstract List<Geek> findByInteret(Long interetId);
+	abstract List<Geek> findByInteret(Long interetId, List<Geek> preBuffuredList);
 	
 	
 	abstract List<Geek>findByCritere(Object... values);

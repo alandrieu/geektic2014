@@ -1,6 +1,7 @@
 package com.ninja_squad.geektic.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,17 +52,15 @@ public class GeekService implements IGeekService {
 	}
 
 	@Override
-	public List<Geek> findByInteret(CentreInteret interet) {
+	public List<Geek> findByInteret(Long interetId) {
 		List<Geek> listAll = geekDao.findAll();
-
+		
 		List<Integer> deleteItem = new ArrayList<>();
 
 		for (int i = 0; i < listAll.size(); i++) {
-			Geek e = listAll.get(i);
-
 			Boolean value = false;
-			for (CentreInteret inter : e.getListeCentreInteret()) {
-				if (inter == interet)
+			for (CentreInteret inter : listAll.get(i).getListeCentreInteret()) {
+				if (inter.getId().equals(interetId))
 					value = true;
 			}
 			if (!value)
@@ -80,12 +79,12 @@ public class GeekService implements IGeekService {
 		List<Geek> listAll = this.findAll();
 		   for(Object c : values){
 			      if(c instanceof CentreInteret)
-			    	  this.findByInteret((CentreInteret)c, listAll);
+			    	  this.findByInteret(((CentreInteret) c).getId(), listAll);
 			      else if (c instanceof TypeSexe)
 			    	  this.findBySexe((TypeSexe)c, listAll);
 			      
 			   }
-		   return null;
+		   return listAll;
 	}
 
 	@Override
@@ -95,9 +94,7 @@ public class GeekService implements IGeekService {
 		List<Integer> deleteItem = new ArrayList<>();
 
 		for (int i = 0; i < listAll.size(); i++) {
-			Geek e = listAll.get(i);
-
-			if (e.getSexe() != sexe)
+			if (!listAll.get(i).getSexe().equals(sexe))
 				deleteItem.add(i);
 		}
 
@@ -105,11 +102,11 @@ public class GeekService implements IGeekService {
 			listAll.remove(integer);
 		}
 		
-		return null;
+		return listAll;
 	}
 
 	@Override
-	public List<Geek> findByInteret(CentreInteret interet,
+	public List<Geek> findByInteret(Long long1,
 			List<Geek> preBuffuredList) {
 		List<Geek> listAll = preBuffuredList;
 
@@ -120,7 +117,7 @@ public class GeekService implements IGeekService {
 
 			Boolean value = false;
 			for (CentreInteret inter : e.getListeCentreInteret()) {
-				if (inter == interet)
+				if (inter.getId() == long1)
 					value = true;
 			}
 			if (!value)

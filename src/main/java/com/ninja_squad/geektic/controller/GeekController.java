@@ -34,13 +34,13 @@ public class GeekController {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/find/{interet}/{sexe}")
     public List<Geek> showGeeksByName(
-    		@PathVariable("interet") CentreInteret interet,
+    		@PathVariable("interet") Long interetId,
     		@PathVariable("sexe") TypeSexe sexe) {  
-        return geekService.findByCritere(interet, sexe);
+			return geekService.findByCritere(interetId, sexe);
     }  
 	
 	@RequestMapping(method = RequestMethod.GET, value ="/find/interet/{interet}")
-    public List<Geek> findByInteret(@PathVariable("interet") CentreInteret interet) {  
+    public List<Geek> findByInteret(@PathVariable("interet") Long interet) {  
         return geekService.findByInteret(interet);
     }
 	

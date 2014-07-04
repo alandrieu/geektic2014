@@ -27,15 +27,15 @@ FOREIGN KEY (ID_INTERET) REFERENCES CENTRES_INTERET(ID) ON DELETE CASCADE,
 
 INSERT INTO "PUBLIC"."GEEK"
 ("NOM", "PRENOM", "AGE", "SEXE", "MAIL", "PATHAVATAR" )
-VALUES (  'Landrieu', 'alexis', '22', 'homme', 'alexis.landrieu@google.fr', '/ressources/profil/landrieu/picture/avatar.jpeg')
+VALUES (  'Landrieu', 'alexis', '22', 'homme', 'alexis.landrieu@google.fr', '/ressources/profil/landrieu/picture/avatar.png')
 
 INSERT INTO "PUBLIC"."GEEK"
 ("NOM", "PRENOM", "AGE", "SEXE", "MAIL", "PATHAVATAR" )
-VALUES (  'Mick', 'jean', '25', 'femme', 'mick.jean@google.fr', '/ressources/profil/mick/picture/avatar.jpeg')
+VALUES (  'Mick', 'jean', '25', 'femme', 'mick.jean@google.fr', '/ressources/profil/mick/picture/avatar.png')
 
 INSERT INTO "PUBLIC"."GEEK"
 ("NOM", "PRENOM", "AGE", "SEXE", "MAIL", "PATHAVATAR" )
-VALUES (  'carole', 'darty', '14', 'femme', 'carole.darty@google.fr', '/ressources/profil/carole/picture/avatar.jpeg')
+VALUES (  'carole', 'darty', '14', 'femme', 'carole.darty@google.fr', '/ressources/profil/carole/picture/avatar.png')
 
 INSERT INTO "PUBLIC"."CENTRES_INTERET"
 ("TITRE", "DESCRIPTION")

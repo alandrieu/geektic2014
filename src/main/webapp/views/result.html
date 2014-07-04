@@ -26,12 +26,10 @@
 				<td>{{ geek.sexe }}</td>
 
 				<table class="table">
-					<thead>
-						<tr>
+					<thead><tr>
 							<th>Titre</th>
 							<th>Description</th>
-						</tr>
-					</thead>
+					</tr></thead>
 					<tbody>
 						<tr ng-repeat="interet in geek.listeCentreInteret">
 							<td>{{ interet.titre }}</td>
@@ -46,4 +44,4 @@
 
 <h2 class="text-center">Data controller</h2>
 <hr>
-{{ geek }}
+{{ geeks }}

@@ -25,7 +25,7 @@ app.controller('GeekByCritere',
 			$http.get(
 					'/geek/find/' + $routeParams.interet + '/'
 							+ $routeParams.sexe).success(function(data) {
-				$scope.geek = data;
+				$scope.geeks = data;
 			});
 		});
 

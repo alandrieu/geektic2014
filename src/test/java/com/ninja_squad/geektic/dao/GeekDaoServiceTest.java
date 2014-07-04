@@ -47,11 +47,11 @@ public class GeekDaoServiceTest {
 	
 	@Test
 	public void findGeekByInteretCriteria() {	
-		CentreInteret interet = new CentreInteret("Activité artistique",
-				"Je fais partie d’une chorale dans laquelle je suis soprano.");
-
 		List<Geek> actual = null;
-		actual = service.findByInteret(interet);
+
+		actual = service.findByInteret(1L);
+		
+		// pas de retour ...
 		assertTrue(!actual.isEmpty());
 	}
 	
