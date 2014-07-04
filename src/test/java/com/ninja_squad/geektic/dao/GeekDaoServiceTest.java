@@ -54,4 +54,17 @@ public class GeekDaoServiceTest {
 		actual = service.findByInteret(interet);
 		assertTrue(!actual.isEmpty());
 	}
+	
+	@Test
+	public void findGeekBySexeCriteria() {	
+		List<Geek> fakeList = new ArrayList<Geek>();
+		
+		fakeList.add(new Geek("toto", "homme", TypeSexe.homme));
+		fakeList.add(new Geek("toto", "femme", TypeSexe.femme));
+
+		List<Geek> actual = null;
+		actual = service.findBySexe(TypeSexe.homme, fakeList);
+		
+		assertTrue(!actual.isEmpty());
+	}
 }
