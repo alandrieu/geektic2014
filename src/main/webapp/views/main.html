@@ -1,4 +1,33 @@
 <title>Geektic</title>
-   <ul class="list-group">
-<h1 ng-repeat='geek in geeks'>{{ geek }}</h1>
-</ul>
+<h1 class="text-center">Geektic Gotta Catch 'Em All !</h1>
+
+<form action="#profile">
+	<!-- Liste des utilisateur-->
+	<input id="inputSearch" ng-model="searchText" placeholder="Search&hellip;"}>
+	<input class="btn" class="form-control" type="submit" value="Search">
+	
+	<select ng-model="Interet" ng-options="interet.titre for interet in interets"></select>	
+	
+	<!-- Choix Homme Femme-->
+	<input type=text list=browsers >
+	<datalist id=browsers >
+   		<option> Homme
+   		<option> Femme
+	</datalist>
+</form>
+
+<div ng-repeat="geek in geeks">
+	<li class="list-group-item">
+	<img src="{{geek.avatar}}" alt="Avatar" border=3 height=50 width=50></img> 
+	
+	<a ng-href="#/profil/{{geek.id}}">
+			{{ geek.nom }} {{ geek.prenom }}, {{ geek.age }} ans {{ geek.email }}
+	</a></li>
+</div>
+
+<h1 class="text-center">Data controller</h1>
+<hr>
+{{ geeks }}
+<h4 class="text-center">Centres d'interet</h4>
+<hr>
+{{ interets }}

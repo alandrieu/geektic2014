@@ -1,8 +1,14 @@
+<h1 class="text-center">{{ geek.nom }} {{ geek.prenom }}</h1>
 
-
-
-
-<title> {{ geek.nom }} {{ geek.prenom }} </title>
-{{ geek.nom }} {{ geek.prenom }} <br />
+<input action="#" class="btn" type="submit" value="Home">
+<hr>
+{{ geek.nom }} {{ geek.prenom }}<br />
 {{ geek.age }} ans <br />
 {{ geek.email }} <br />
+<div ng-repeat="interet in geek.listeCentreInteret">
+	{{ interet.titre }}
+</div>
+
+<h1 class="text-center">Data controller</h1>
+<hr>
+{{ geek }}

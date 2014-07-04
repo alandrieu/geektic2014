@@ -23,7 +23,7 @@
 		</form>
 	
 	
-	<!-- container  <td data-title="'avatar'"><img src={{geek.pathavatar}} alt="Avatar" border=3 height=50 width=50></img></td>-->
+	<!-- container  <td data-title="'avatar'"></td>-->
 	<table ng-table="tableParams" class="table">
 		<tr ng-repeat="geek in geeks">
 			<td data-title="'nom'">{{geek.pathavatar}}</td>
@@ -35,7 +35,9 @@
 	
 	<div ng-repeat="geek in geeks">
 		<li class="list-group-item">
-				<a ng-href="#/geek/{{geek.id}}">{{ geek.nom }} {{ geek.prenom }}</a>
+				<a ng-href="#/geek/{{geek.id}}">
+				<img src={{geek.avatar}} alt="Avatar" border=3 height=50 width=50></img>{{ geek.nom }} {{ geek.prenom }}
+				</a>
 		</li>
 	</div>
 
